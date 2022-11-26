@@ -1,0 +1,48 @@
+def password_generator():
+    print("WELCOME TO PYTHON PASSWORD GENERATOR!!")
+    length=int(input("Enter the preferred length of password:"))
+    if length<12:
+        print("Password must contain at least 12 characters")
+        length=int(input("Enter the preferred length of password:"))
+
+    if length>=12:
+        import random
+        numbers=['0','1','2','3','4','5','6','7','8','9']
+        lowercase_alphabets=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        uppercase_alphabets=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        special_characters=['@','#','$','%','=',':','?','.','/','|','~','*','(',')']
+        p=random.choice(numbers)
+        q=random.choice(lowercase_alphabets)
+        r=random.choice(uppercase_alphabets)
+        s=random.choice(special_characters)
+        password_list=[p,q,r,s]
+
+        for i in range(length-3):
+            k1=random.choice(numbers)
+            k2=random.choice(lowercase_alphabets)
+            k3=random.choice(uppercase_alphabets)
+            k4=random.choice(special_characters)
+            combined_list=[k1,k2,k3,k4]
+            final_choice=random.choice(combined_list)
+            password_list.append(final_choice)
+
+        password=""
+
+        for k in password_list:
+            password=password+k
+
+        print("Suggested password:",password)
+    else:
+        print("Sorry, password must contain at least 12 characters!")
+        print("Thank you for using PYTHON PASSWORD GENERATOR,to try again, type: password_generator()")
+
+    if length>=12:
+        check=input("Would you like a different password instead? (yes/no)")
+        if check=="yes" or check=="Yes" or check=="YES":
+            print("To generate new password, try again :)")
+            #If using Python IDLE, just type password_generator() to call function again
+        else:
+            print("Thank you for using PYTHON PASSWORD GENERATOR :)")
+            
+password_generator()
+    
